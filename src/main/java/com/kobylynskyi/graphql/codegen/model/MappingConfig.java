@@ -86,6 +86,7 @@ public class MappingConfig implements GraphQLCodegenConfiguration, Combinable<Ma
     private boolean generateModelOpenClasses;
     private boolean initializeNullableTypes;
     private boolean generateSealedInterfaces;
+    private Boolean addDeprecatedAnnotation;
 
     private GeneratedLanguage generatedLanguage;
 
@@ -198,6 +199,8 @@ public class MappingConfig implements GraphQLCodegenConfiguration, Combinable<Ma
                 GraphQLCodegenConfiguration::isGenerateModelOpenClasses);
         initializeNullableTypes = getValueOrDefaultToThis(source,
                 GraphQLCodegenConfiguration::isInitializeNullableTypes);
+        addDeprecatedAnnotation = getValueOrDefaultToThis(source,
+                GraphQLCodegenConfiguration::getAddDeprecatedAnnotation);
         generateSealedInterfaces = getValueOrDefaultToThis(source,
                 GraphQLCodegenConfiguration::isGenerateSealedInterfaces);
         supportUnknownFields = getValueOrDefaultToThis(source,
@@ -683,6 +686,15 @@ public class MappingConfig implements GraphQLCodegenConfiguration, Combinable<Ma
     @Override
     public String getUnknownFieldsPropertyName() {
         return unknownFieldsPropertyName;
+    }
+
+    @Override
+    public Boolean getAddDeprecatedAnnotation() {
+        return addDeprecatedAnnotation;
+    }
+
+    public void setAddDeprecatedAnnotation(Boolean addDeprecatedAnnotation) {
+        this.addDeprecatedAnnotation = addDeprecatedAnnotation;
     }
 
     public void setUnknownFieldsPropertyName(String unknownFieldsPropertyName) {

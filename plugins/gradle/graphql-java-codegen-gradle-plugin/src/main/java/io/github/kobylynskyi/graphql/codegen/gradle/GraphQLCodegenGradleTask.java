@@ -107,7 +107,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
     private Boolean generateModelOpenClasses = MappingConfigConstants.DEFAULT_GENERATE_MODEL_OPEN_CLASSES;
     private Boolean initializeNullableTypes = MappingConfigConstants.DEFAULT_INITIALIZE_NULLABLE_TYPES;
     private Boolean generateSealedInterfaces = MappingConfigConstants.DEFAULT_GENERATE_SEALED_INTERFACES;
-
+    private Boolean addDeprecatedAnnotation = MappingConfigConstants.DEFAULT_ADD_DEPRECATED_ANNOTATION;
     private Boolean supportUnknownFields = MappingConfigConstants.DEFAULT_SUPPORT_UNKNOWN_FIELDS;
     private String unknownFieldsPropertyName = MappingConfigConstants.DEFAULT_UNKNOWN_FIELDS_PROPERTY_NAME;
 
@@ -192,7 +192,7 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
         mappingConfig.setGeneratedLanguage(generatedLanguage);
         mappingConfig.setGenerateModelOpenClasses(generateModelOpenClasses);
         mappingConfig.setInitializeNullableTypes(initializeNullableTypes);
-
+        mappingConfig.setAddDeprecatedAnnotation(getAddGeneratedAnnotation());
         mappingConfig.setSupportUnknownFields(isSupportUnknownFields());
         mappingConfig.setUnknownFieldsPropertyName(getUnknownFieldsPropertyName());
 
@@ -931,6 +931,17 @@ public class GraphQLCodegenGradleTask extends DefaultTask implements GraphQLCode
 
     public void setUnknownFieldsPropertyName(String unknownFieldsPropertyName) {
         this.unknownFieldsPropertyName = unknownFieldsPropertyName;
+    }
+
+    @Input
+    @Optional
+    @Override
+    public Boolean getAddDeprecatedAnnotation() {
+        return addDeprecatedAnnotation;
+    }
+
+    public void setAddDeprecatedAnnotation(Boolean addDeprecatedAnnotation) {
+        this.addDeprecatedAnnotation = addDeprecatedAnnotation;
     }
 
     @Input

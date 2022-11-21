@@ -57,7 +57,7 @@ import ${import}.*
     </#list>
      */
     </#if>
-    <#if field.deprecated?has_content>
+    <#if addDeprecatedAnnotation && field.deprecated?has_content>
     @${field.deprecated.annotation}(message = "${field.deprecated.reason}")
     </#if>
     <#list field.annotations as annotation>

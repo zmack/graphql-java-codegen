@@ -29,7 +29,7 @@ class ${className}() : GraphQLParametrizedInput {
 data class ${className}(
 <#if fields?has_content>
 <#list fields as field>
-    <#if field.deprecated?has_content>
+    <#if addDeprecatedAnnotation && field.deprecated?has_content>
         @${field.deprecated.annotation}(message = "${field.deprecated.reason}")
     </#if>
     <#list field.annotations as annotation>@get:${annotation}

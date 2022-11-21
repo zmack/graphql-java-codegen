@@ -79,6 +79,9 @@ public class MappingConfigConstants {
     public static final boolean DEFAULT_SUPPORT_UNKNOWN_FIELDS = false;
     public static final String DEFAULT_SUPPORT_UNKNOWN_FIELDS_STRING = "false";
     public static final String DEFAULT_UNKNOWN_FIELDS_PROPERTY_NAME = "userDefinedFields";
+    // Only supported in Kotlin
+    public static final boolean DEFAULT_ADD_DEPRECATED_ANNOTATION = true;
+    public static final String DEFAULT_ADD_DEPRECATED_ANNOTATION_STRING = "true";
 
     private MappingConfigConstants() {
     }

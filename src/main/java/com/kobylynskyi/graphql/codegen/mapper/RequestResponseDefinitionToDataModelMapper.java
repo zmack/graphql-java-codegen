@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static com.kobylynskyi.graphql.codegen.model.DataModelFields.ADD_DEPRECATED_ANNOTATION;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.ANNOTATIONS;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.BUILDER;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.CLASS_NAME;
@@ -123,6 +124,7 @@ public class RequestResponseDefinitionToDataModelMapper {
         dataModel.put(GENERATED_INFO, mappingContext.getGeneratedInformation());
         dataModel.put(GENERATE_ALL_METHOD_IN_PROJECTION, mappingContext.getGenerateAllMethodInProjection());
         dataModel.put(RESPONSE_PROJECTION_MAX_DEPTH, mappingContext.getResponseProjectionMaxDepth());
+        dataModel.put(ADD_DEPRECATED_ANNOTATION, mappingContext.getAddDeprecatedAnnotation());
         // dataModel.put(TO_STRING, mappingConfig.getGenerateToString()); always generated for serialization purposes
         return dataModel;
     }
@@ -154,6 +156,7 @@ public class RequestResponseDefinitionToDataModelMapper {
         dataModel.put(GENERATED_ANNOTATION, mappingContext.getAddGeneratedAnnotation());
         dataModel.put(GENERATED_INFO, mappingContext.getGeneratedInformation());
         dataModel.put(ENUM_IMPORT_IT_SELF_IN_SCALA, mappingContext.getEnumImportItSelfInScala());
+        dataModel.put(ADD_DEPRECATED_ANNOTATION, mappingContext.getAddDeprecatedAnnotation());
         // dataModel.put(TO_STRING, mappingConfig.getGenerateToString()); always generated for serialization purposes
         return dataModel;
     }
@@ -189,6 +192,7 @@ public class RequestResponseDefinitionToDataModelMapper {
         dataModel.put(RETURN_TYPE_NAME, returnType);
         dataModel.put(GENERATED_ANNOTATION, mappingContext.getAddGeneratedAnnotation());
         dataModel.put(GENERATED_INFO, mappingContext.getGeneratedInformation());
+        dataModel.put(ADD_DEPRECATED_ANNOTATION, mappingContext.getAddDeprecatedAnnotation());
         return dataModel;
     }
 
@@ -224,6 +228,7 @@ public class RequestResponseDefinitionToDataModelMapper {
         dataModel.put(GENERATED_ANNOTATION, mappingContext.getAddGeneratedAnnotation());
         dataModel.put(GENERATED_INFO, mappingContext.getGeneratedInformation());
         dataModel.put(ENUM_IMPORT_IT_SELF_IN_SCALA, mappingContext.getEnumImportItSelfInScala());
+        dataModel.put(ADD_DEPRECATED_ANNOTATION, mappingContext.getAddDeprecatedAnnotation());
         return dataModel;
     }
 

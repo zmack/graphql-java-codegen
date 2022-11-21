@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static com.kobylynskyi.graphql.codegen.model.DataModelFields.ADD_DEPRECATED_ANNOTATION;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.ANNOTATIONS;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.CLASS_NAME;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.ENUM_IMPORT_IT_SELF_IN_SCALA;
@@ -65,6 +66,7 @@ public class InterfaceDefinitionToDataModelMapper {
         dataModel.put(IMMUTABLE_MODELS, mappingContext.getGenerateImmutableModels());
         dataModel.put(PARENT_INTERFACE_PROPERTIES, mappingContext.getParentInterfaceProperties());
         dataModel.put(GENERATE_SEALED_INTERFACES, mappingContext.isGenerateSealedInterfaces());
+        dataModel.put(ADD_DEPRECATED_ANNOTATION, mappingContext.getAddDeprecatedAnnotation());
         return dataModel;
     }
 

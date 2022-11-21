@@ -72,6 +72,7 @@ task graphqlCodegenOrderService(type: GraphQLCodegenGradleTask) {
             DateTime: "java.util.Date"
     ]
     modelNameSuffix = "TO"
+
 }
 
 /**

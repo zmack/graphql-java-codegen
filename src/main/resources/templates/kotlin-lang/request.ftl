@@ -50,7 +50,7 @@ open class ${className}(private val alias: String?) : GraphQLOperationRequest {
 </#list>
      */
 </#if>
-<#if field.deprecated?has_content>
+<#if addDeprecatedAnnotation && field.deprecated?has_content>
     @${field.deprecated.annotation}(message = "${field.deprecated.reason}")
 </#if>
     fun set${field.name?replace("`", "")?cap_first}(${field.name}: ${field.type}) {
@@ -130,7 +130,7 @@ open class ${className}(private val alias: String?) : GraphQLOperationRequest {
         </#list>
          */
     </#if>
-    <#if field.deprecated?has_content>
+    <#if addDeprecatedAnnotation && field.deprecated?has_content>
         @${field.deprecated.annotation}(message = "${field.deprecated.reason}")
     </#if>
         fun set${field.name?replace("`", "")?cap_first}(${field.name}: ${field.type}): Builder {

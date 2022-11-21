@@ -227,6 +227,9 @@ public class GraphQLCodegenMojo extends AbstractMojo implements GraphQLCodegenCo
     @Parameter(defaultValue = MappingConfigConstants.DEFAULT_GENERATE_SEALED_INTERFACES_STRING)
     private boolean generateSealedInterfaces;
 
+    @Parameter(defaultValue = MappingConfigConstants.DEFAULT_ADD_DEPRECATED_ANNOTATION_STRING)
+    private boolean addDeprecatedAnnotation;
+
     @Parameter(defaultValue = "false")
     private boolean skip;
 
@@ -292,6 +295,7 @@ public class GraphQLCodegenMojo extends AbstractMojo implements GraphQLCodegenCo
         mappingConfig.setGenerateModelOpenClasses(isGenerateModelOpenClasses());
         mappingConfig.setInitializeNullableTypes(isInitializeNullableTypes());
         mappingConfig.setGenerateSealedInterfaces(isGenerateSealedInterfaces());
+        mappingConfig.setAddDeprecatedAnnotation(getAddDeprecatedAnnotation());
 
         mappingConfig.setSupportUnknownFields(isSupportUnknownFields());
         mappingConfig.setUnknownFieldsPropertyName(getUnknownFieldsPropertyName());
@@ -655,6 +659,10 @@ public class GraphQLCodegenMojo extends AbstractMojo implements GraphQLCodegenCo
     public Boolean isGenerateSealedInterfaces() {
         return generateSealedInterfaces;
     }
+
+    @Override
+    public Boolean getAddDeprecatedAnnotation() {
+        return addDeprecatedAnnotation;
 
     public ParentInterfacesConfig getParentInterfaces() {
         return parentInterfaces;

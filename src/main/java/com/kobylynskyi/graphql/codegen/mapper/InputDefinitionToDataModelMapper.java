@@ -27,6 +27,7 @@ import static com.kobylynskyi.graphql.codegen.model.DataModelFields.SUPPORT_UNKN
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.TO_STRING;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.TO_STRING_FOR_REQUEST;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.UNKNOWN_FIELDS_PROPERTY_NAME;
+import static com.kobylynskyi.graphql.codegen.model.DataModelFields.ADD_DEPRECATED_ANNOTATION;
 
 /**
  * Map input type definition to a Freemarker data model
@@ -78,6 +79,7 @@ public class InputDefinitionToDataModelMapper implements UnknownFieldsSupport {
         dataModel.put(INITIALIZE_NULLABLE_TYPES, mappingContext.isInitializeNullableTypes());
         dataModel.put(SUPPORT_UNKNOWN_FIELDS, mappingContext.isSupportUnknownFields());
         dataModel.put(UNKNOWN_FIELDS_PROPERTY_NAME, mappingContext.getUnknownFieldsPropertyName());
+        dataModel.put(ADD_DEPRECATED_ANNOTATION, mappingContext.getAddDeprecatedAnnotation());
         return dataModel;
     }
 

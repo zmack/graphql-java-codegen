@@ -63,6 +63,9 @@ public class KotlinGraphQLCodegen extends GraphQLCodegen {
             // functional expression
             mappingConfig.setGenerateImmutableModels(true);
         }
+        if (mappingConfig.getAddDeprecatedAnnotation() == null) {
+            mappingConfig.setAddDeprecatedAnnotation(true);
+        }
         super.initDefaultValues(mappingConfig);
     }
 

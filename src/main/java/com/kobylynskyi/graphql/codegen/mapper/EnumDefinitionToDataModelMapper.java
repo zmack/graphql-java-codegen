@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static com.kobylynskyi.graphql.codegen.model.DataModelFields.ADD_DEPRECATED_ANNOTATION;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.ANNOTATIONS;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.CLASS_NAME;
 import static com.kobylynskyi.graphql.codegen.model.DataModelFields.FIELDS;
@@ -82,6 +83,7 @@ public class EnumDefinitionToDataModelMapper {
         dataModel.put(FIELDS, map(mappingContext, definition.getValueDefinitions()));
         dataModel.put(GENERATED_ANNOTATION, mappingContext.getAddGeneratedAnnotation());
         dataModel.put(GENERATED_INFO, mappingContext.getGeneratedInformation());
+        dataModel.put(ADD_DEPRECATED_ANNOTATION, mappingContext.getAddDeprecatedAnnotation());
         dataModel.put(SERIALIZATION_LIBRARY, MappingConfigConstants.DEFAULT_SERIALIZATION_LIBRARY);
         return dataModel;
     }

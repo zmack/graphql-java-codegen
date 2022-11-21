@@ -62,7 +62,7 @@ open class ${className}()<#if implements?has_content> : <#list implements as int
 <#if generateModelOpenClasses>open class<#else>data class</#if> ${className}(
 <#if fields?has_content>
 <#list fields as field>
-    <#if field.deprecated?has_content>
+    <#if addDeprecatedAnnotation && field.deprecated?has_content>
     @${field.deprecated.annotation}(message = "${field.deprecated.reason}")
     </#if><#-- Properties of multiple interfaces should not have duplicate names  -->
     <#if parentInterfaces?has_content><#list parentInterfaces as parent><#if parent == field.name>override
@@ -170,7 +170,7 @@ open class ${className}()<#if implements?has_content> : <#list implements as int
         </#list>
          */
         </#if>
-        <#if field.deprecated?has_content>
+        <#if addDeprecatedAnnotation && field.deprecated?has_content>
         @${field.deprecated.annotation}(message = "${field.deprecated.reason}")
         </#if>
         fun set${field.name?replace("`", "")?cap_first}(${field.name}: ${field.type}): Builder {

@@ -502,5 +502,12 @@ public interface GraphQLCodegenConfiguration {
      */
     String getUnknownFieldsPropertyName();
 
+    /**
+     * Specifies whether generated classes deprecated fields should be annotated with @deprecated
+     *
+     * @return <b>true</b> if deprecated fields should be annotated with @deprecated
+     */
+    Boolean getAddDeprecatedAnnotation();
+
 
 }

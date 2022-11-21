@@ -334,6 +334,11 @@ public class MappingContext implements GraphQLCodegenConfiguration {
         return config.getUnknownFieldsPropertyName();
     }
 
+    @Override
+    public Boolean getAddDeprecatedAnnotation() {
+        return config.getAddDeprecatedAnnotation();
+    }
+
     public ExtendedDocument getDocument() {
         return document;
     }
